@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet} from 'react-native';
 import { Button } from 'react-native-elements';
 
 export interface AcessarProps {
@@ -8,6 +8,7 @@ export interface AcessarProps {
 
 export default function Acessar (props: AcessarProps) {
     const nav = useNavigation();
+
     return (
       <View style={styles.form}>
           <Text style={styles.frase}>Burguer Mania </Text>

@@ -23,7 +23,7 @@ export default function Logar (props: LogarProps) {
     if(dados.email.trim() == 'teste@teste.com' && dados.senha == '123456')
       nav.navigate('home')
     else
-      setErro('Falha ao realizar o login');
+      ToastAndroid.show('Email ou Senha Incorreta', ToastAndroid.LONG);
 
     <View>
       onBlur={props.onBlur}
