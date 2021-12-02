@@ -17,8 +17,10 @@ export default function Acessar (props: AcessarProps) {
         <ImageBackground source= {require('./../../img/Hgr.png')}
             style={styles.icone}>
         </ImageBackground>
-        <Button title ="ACESSAR" onPress={()=> nav.navigate('logar')} type= "solid" buttonStyle={{borderRadius:50, backgroundColor: '#E50D0D', 
-              marginHorizontal: 80, marginVertical: 5}} />
+    
+      
+      <Button title ="ACESSAR" onPress={()=> nav.navigate('logar')} type= "solid" buttonStyle={{borderRadius:50, backgroundColor: '#E50D0D', 
+      marginHorizontal: 80, marginVertical: 110}} />
       </View>
     );
 }

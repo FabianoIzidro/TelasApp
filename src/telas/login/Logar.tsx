@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/core';
+import firebase from 'firebase';
 import { Formik } from 'formik';
 import * as React from 'react';
 import { useState } from 'react';
@@ -13,23 +14,16 @@ export interface LogarProps {
 export default function Logar (props: LogarProps) {
 
   const nav = useNavigation();
-  const [erro, setErro] = useState<null|string>(null);
+  const [erro, setErro] = useState("");
 
   const login = async (dados) => {
-      setErro(null)
-      
-    await new Promise((resolve, error) => setTimeout(() => resolve(''),1000));
-    console.log(dados)
-    if(dados.email.trim() == 'teste@teste.com' && dados.senha == '123456')
-      nav.navigate('home')
-    else
-      ToastAndroid.show('Email ou Senha Incorreta', ToastAndroid.LONG);
+      setErro("")
 
-    <View>
-      onBlur={props.onBlur}
-    </View>
-    
-}
+      firebase.auth().signInWithEmailAndPassword(dados.email, dados.senha)
+      .then(usuario =>nav.navigate('home'))
+      .catch(erro => ToastAndroid.show('Email ou senha incorreta', ToastAndroid.LONG))
+  }
+
 
 return (
   <>
@@ -72,7 +66,7 @@ return (
               buttonStyle={{borderRadius:50, backgroundColor: '#E50D0D', 
               marginHorizontal: 80, marginVertical: 5}} />}
               {isSubmitting && <ActivityIndicator size="large" color="black"/>}
-            <Text style={styles.cadastrar}> não possui conta? {'\n'}Clique aqui para se cadastrar</Text>
+            <Text style={styles.cadastrar} onPress={()=> nav.navigate('cadastrar')}> não possui conta? {'\n'}Clique aqui para se cadastrar </Text>
       </View> )}
      
     </Formik>
@@ -81,64 +75,64 @@ return (
 }
 const styles = StyleSheet.create({
 
-form: {
-  marginTop: 35,
-  backgroundColor: '#ECE015', 
-  flex: 1
-
-},
-
-dados: {
-  backgroundColor: 'rgba(255,255,255,0.5)', 
-  padding: 25,
-  marginBottom: -5,
-  borderRadius: 30,
-  marginHorizontal: 1, 
-  marginTop: -60, 
-  flex: 1
-},
-
-dados2: {
-  backgroundColor: 'rgba(255,255,255,0.5)', 
-  padding: 25,
-  marginBottom: -10,
-  borderRadius: 30,
-  marginHorizontal: 5, 
-  marginTop: -5, 
-  flex: 1
+  form: {
+    marginTop: 35,
+    backgroundColor: '#ECE015', 
+    flex: 1
   
-},
-
-cadastrar: {
-  color: 'black',
-  fontSize: 20,
-  textAlign:'center',
-  margin: 5,
-  textDecorationLine:'underline',
+  },
   
-   
- },
- icone: {
-  width:'100%', 
-  height:'55%',
-  marginTop: 30
+  dados: {
+    backgroundColor: 'rgba(255,255,255,0.5)', 
+    padding: 25,
+    marginBottom: -5,
+    borderRadius: 30,
+    marginHorizontal: 1, 
+    marginTop: -60, 
+    flex: 1
+  },
   
-},
-errors: {
-  color: 'red',
-  fontSize: 18,
-  textAlign: 'center'
-},
-
-frase: {
-  color: 'black',
-  marginTop: 20,
-  fontSize: 30,
-  justifyContent: 'center',
-  flexDirection: 'row',
-  textAlign: 'center',
-  fontWeight: "bold"
-
-}
-
-})
+  dados2: {
+    backgroundColor: 'rgba(255,255,255,0.5)', 
+    padding: 25,
+    marginBottom: -10,
+    borderRadius: 30,
+    marginHorizontal: 5, 
+    marginTop: -5, 
+    flex: 1
+    
+  },
+  
+  cadastrar: {
+    color: 'black',
+    fontSize: 20,
+    textAlign:'center',
+    margin: 5,
+    textDecorationLine:'underline',
+    
+     
+   },
+   icone: {
+    width:'100%', 
+    height:'55%',
+    marginTop: 30
+    
+  },
+  errors: {
+    color: 'red',
+    fontSize: 18,
+    textAlign: 'center'
+  },
+  
+  frase: {
+    color: 'black',
+    marginTop: 20,
+    fontSize: 30,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    textAlign: 'center',
+    fontWeight: "bold"
+  
+  },
+  
+  })

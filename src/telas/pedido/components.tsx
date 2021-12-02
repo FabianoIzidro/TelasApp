@@ -5,26 +5,30 @@ import { SwipeRow } from 'react-native-swipe-list-view';
 import { Opcao } from '../../models/opcao';
 
 export interface ItemPedidoProps {
-  opcao: Opcao
+  opcao: Opcao,
+  total: number;
   onExcluir(id?: string):void
 }
 
 export function ItemPedido (props: ItemPedidoProps) {
-  const {opcao} =  props;
+  
+  const {opcao, total} =  props;
     return (
-      <SwipeRow leftOpenValue = {200} disableRightSwipe rightOpenValue={-65} stopRightSwipe={-120}>
-        <View style = {{flexDirection:'row', justifyContent:'flex-end'}}>
-                <Button title ="Excluir" onPress={() =>props.onExcluir(opcao.id)} containerStyle={{borderRadius:0}} buttonStyle={styles.btnExcluir}/>
+      <>
+        <SwipeRow leftOpenValue = {200} disableRightSwipe rightOpenValue={-65} stopRightSwipe={-120}>
+          <View style = {{flexDirection:'row', justifyContent:'flex-end'}}>
+                  <Button title ="Excluir" onPress={() =>props.onExcluir(opcao.id)} containerStyle={{borderRadius:0}} buttonStyle={styles.btnExcluir}/>
+        </View>
+
+
+            <View style={styles.container}>
+              <Text style={styles.preco}>{opcao.pedido}</Text>
+              <Text style={styles.preco}>{opcao.nome}</Text>
+              <Text style={styles.preco}>{opcao.icone}</Text>
+              <Text style={styles.preco}>{opcao.preco * total}</Text>
             </View>
-
-
-
-      <View style={styles.container}>
-         <Text>{opcao.pedido}</Text>
-         <Text>{opcao.nome}</Text>
-         <Text>{opcao.preco}</Text>
-      </View>
-      </SwipeRow>
+        </SwipeRow>
+      </>
     );
 }
 const styles = StyleSheet.create({
@@ -45,5 +49,12 @@ const styles = StyleSheet.create({
 
   btnExcluir:{
       backgroundColor: 'red', width:65, borderRadius:0},
+  
+      preco: {
+
+        fontWeight: "bold",
+        fontSize: 15,
+
+      },
     
 })

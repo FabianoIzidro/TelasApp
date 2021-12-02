@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text,StyleSheet } from 'react-native';
-import { Button, withTheme } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { Perfil } from '../../../models/perfil';
 

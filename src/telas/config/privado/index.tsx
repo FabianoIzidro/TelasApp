@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Vibration } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { AppToolbar } from '../../../components/toolbar';
-import { Button, Switch, withTheme } from 'react-native-elements';
+import { Switch } from 'react-native-elements';
 import { useState } from 'react';
 
 export interface ConfigPrivadoScreenProps {
@@ -55,20 +55,24 @@ const styles = StyleSheet.create({
   },
   texto:{
     padding: 10,
-    fontSize:15,
+    fontSize:20,
+    fontWeight: "bold",
 
   },
 
   notificacao:{
     padding: 10,
-    fontSize:15,
+    fontSize:20,
     backgroundColor: 'red',
     color:'white',
+    fontWeight: "bold",
   },
 
   fundo:{
     backgroundColor: 'yellow',
     padding: 50,
+    fontWeight: "bold",
+    fontSize:20,
     
   }
 })

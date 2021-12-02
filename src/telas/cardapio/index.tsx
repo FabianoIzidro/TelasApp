@@ -21,9 +21,9 @@ export function Cardapio (props: CardapioProps) {
          <ImageBackground source= {require('../../img/1.png')}style={styles.opcao1} ></ImageBackground>
          <Text style={styles.texto}>  1: BIN KING individual R$ 12,00</ Text>
          <ImageBackground source= {require('../../img/2.jpg')}style={styles.opcao2}></ImageBackground>
-         <Text style={styles.texto}> 2: WHOPPER individual R$ 9,90</ Text>
+         <Text style={styles.texto}> 2: WHOPPER individual R$ 9,00</ Text>
          <ImageBackground source= {require('../../img/3.png')}style={styles.opcao3}></ImageBackground>
-         <Text style={styles.texto}> 3: GENERAL PEPPER individual R$ 15,90</ Text>
+         <Text style={styles.texto}> 3: GENERAL PEPPER individual R$ 15,00</ Text>
          
          <Button title ="Pedido" onPress={()=> nav.navigate('pedido')} type= "solid" buttonStyle={{borderRadius:50, backgroundColor: '#E50D0D', 
               marginHorizontal: 80, marginVertical: 110}} />

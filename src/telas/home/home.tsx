@@ -26,7 +26,7 @@ export function Home (props: HomeProps) {
 
 
               </ImageBackground>
-              <Button  title ="Cardapio" type= "solid"  onPress={()=> nav.navigate('carpadio')} 
+              <Button  title ="Cardápio" type= "solid"  onPress={()=> nav.navigate('carpadio')} 
               buttonStyle={{borderRadius:10, backgroundColor: '#8A0808',
               marginHorizontal: 10, marginVertical: 20, marginTop:30, marginRight: 50, marginLeft: 50}} 
               icon={{name:'lunch-dining', color:'yellow'}}/>

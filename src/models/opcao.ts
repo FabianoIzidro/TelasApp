@@ -1,4 +1,4 @@
 export class Opcao{
 
-    public constructor(public pedido: string, public nome: string, public preco:string, public id?: string ){}
+    public constructor(public pedido: string, public nome: string, public icone: string, public preco:number, public id?: string ){}
 }
